@@ -1,0 +1,2 @@
+module NewsscrapersHelper
+end

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Newsscrapers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Time</th>
+      <th>Image url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @newsscrapers.each do |newsscraper| %>
+      <tr>
+        <td><%= newsscraper.title %></td>
+        <td><%= newsscraper.body %></td>
+        <td><%= newsscraper.time %></td>
+        <td><%= newsscraper.image_url %></td>
+        <td><%= link_to 'Show', newsscraper %></td>
+        <td><%= link_to 'Edit', edit_newsscraper_path(newsscraper) %></td>
+        <td><%= link_to 'Destroy', newsscraper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Newsscraper', new_newsscraper_path %>

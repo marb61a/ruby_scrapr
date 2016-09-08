@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :newsscrapers
   root to: 'pages#index'
   # root to: 'application#google_news'
   
