@@ -4,7 +4,8 @@ class NewsscrapersController < ApplicationController
   # GET /newsscrapers
   # GET /newsscrapers.json
   def index
-    @newsscrapers = Newsscraper.all
+    page = Nokogiri::HTML(open('https://news.google.com/news/'))
+    @newsscrapers = page.css('.esc-body')
   end
 
   # GET /newsscrapers/1
