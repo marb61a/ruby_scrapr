@@ -1,1 +1,0 @@
-json.partial! "newsscrapers/newsscraper", newsscraper: @newsscraper
