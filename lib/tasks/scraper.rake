@@ -15,7 +15,9 @@ namespace :scraper do
         time = story.at_css('.al-attribution-timestamp').text
         image_url = story.at_css('.esc-thumbnail-image')['src']
         
-        puts " Start||| Title: #{title} Body: #{body} Time: #{time} Image URL #{image_url} |||End"
+        # puts " Start||| Title: #{title} Body: #{body} Time: #{time} Image URL #{image_url} |||End"
+        
+        Newsscraper.create(title_url: title_url, title: title, body: body, time: time, image_url: image_url)
     
     end
   end

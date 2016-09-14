@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :newsscrapers
   resources :newsscrapers do
     
   end
