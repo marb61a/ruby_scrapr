@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Newsscrapers</h1>
+<h1>Welcome to Newsscraper</h1>
 
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Title url</th>
+      <th>Original Story</th>
       <th>Title</th>
-      <th>Body</th>
-      <th>Time</th>
-      <th>Image url</th>
+      <th>Story Summary</th>
+      <th>Story Posted At</th>
+      <th>Story Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +17,14 @@
   <tbody>
     <% @newsscrapers.each do |newsscraper| %>
       <tr>
-        <td><%= newsscraper.title_url %></td>
+        <td><%= link_to "Original Story", newsscraper.title_url, :target => "_blank" %></td>
         <td><%= newsscraper.title %></td>
         <td><%= newsscraper.body %></td>
         <td><%= newsscraper.time %></td>
-        <td><%= newsscraper.image_url %></td>
-        <td><%= link_to 'Show', newsscraper %></td>
-        <td><%= link_to 'Edit', edit_newsscraper_path(newsscraper) %></td>
-        <td><%= link_to 'Destroy', newsscraper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag newsscraper.image_url %></td>
+        <td><%= link_to 'Show', newsscraper, class: "btn btn-success btn-xs" %></td>
+        <td><%= link_to 'Edit', edit_newsscraper_path(newsscraper), class: "btn btn-warning btnxs" %></td>
+        <td><%= link_to 'Destroy', newsscraper, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
