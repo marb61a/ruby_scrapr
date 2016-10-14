@@ -27,3 +27,9 @@
 
 <%= link_to 'Edit', edit_newsscraper_path(@newsscraper) %> |
 <%= link_to 'Back', newsscrapers_path %>
+
+<%= render @newsscraper.comments %>
+  <%= simple_form_for [@newsscraper, Comment.new] do|comment| %>
+  <%= comment.input :body %>
+  <%= comment.submit "Added Comment", class:"btn btn-danger" %>
+<% end %>
