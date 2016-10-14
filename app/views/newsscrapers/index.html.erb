@@ -21,7 +21,11 @@
         <td><%= newsscraper.title %></td>
         <td><%= newsscraper.body %></td>
         <td><%= newsscraper.time %></td>
-        <td><%= image_tag newsscraper.image_url %></td>
+        <% if newsscraper.image_url.present? %>
+          <td><%= image_tag newsscraper.image_url %></td>
+        <% else %>
+          <td><%= image_tag 'nia.jpg' %></td>
+        <% end%>
         <td><%= link_to 'Show', newsscraper, class: "btn btn-success btn-xs" %></td>
         <td><%= link_to 'Edit', edit_newsscraper_path(newsscraper), class: "btn btn-warning btnxs" %></td>
         <td><%= link_to 'Destroy', newsscraper, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>

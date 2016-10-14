@@ -22,7 +22,11 @@
 
 <p>
   <strong>image_url:</strong>
-  <%= @newsscraper.image_url %>
+  <% if @newsscraper.image_url.present? %>
+    <td><%= image_tag @newsscraper.image_url %></td>
+  <% else %>
+    <td><%= image_tag 'nia.jpg' %></td>
+  <% end%>
 </p>
 
 <%= link_to 'Back To Newsscraper', newsscrapers_path, class:"btn btn-info btn-xs" %>
