@@ -1,35 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title url:</strong>
-  <%= @newsscraper.title_url %>
+  <strong>View:</strong>
+  <%= link_to "Original Story", @newsscraper.title_url, :target => "_blank" %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Headline:</strong>
   <%= @newsscraper.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Story Summary:</strong>
   <%= @newsscraper.body %>
 </p>
 
 <p>
-  <strong>Time:</strong>
-  <%= @newsscraper.time %>
+  <strong>Posted:</strong>
+  <%= time_ago_in_words(@newsscraper.created_at) %> ago
 </p>
 
 <p>
-  <strong>Image url:</strong>
+  <strong>image_url:</strong>
   <%= @newsscraper.image_url %>
 </p>
 
-<%= link_to 'Edit', edit_newsscraper_path(@newsscraper) %> |
-<%= link_to 'Back', newsscrapers_path %>
-
+<%= link_to 'Back To Newsscraper', newsscrapers_path, class:"btn btn-info btn-xs" %>
+<hr>
 <%= render @newsscraper.comments %>
   <%= simple_form_for [@newsscraper, Comment.new] do|comment| %>
   <%= comment.input :body %>
   <%= comment.submit "Added Comment", class:"btn btn-danger" %>
 <% end %>
+<hr>
+<%= link_to 'Back To Newsscraper', newsscrapers_path, class:"btn btn-info btn-xs" %>
