@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class="pull-left padding">
+  <% if @newsscraper.image_url.present? %>
+    <td><%= image_tag @newsscraper.image_url %></td>
+  <% else %>
+    <td><%= image_tag 'nia.jpg' %></td>
+  <% end%>
+</div>
+
 <p>
   <strong>View:</strong>
   <%= link_to "Original Story", @newsscraper.title_url, :target => "_blank" %>
@@ -20,14 +28,6 @@
   <%= time_ago_in_words(@newsscraper.created_at) %> ago
 </p>
 
-<p>
-  <strong>image_url:</strong>
-  <% if @newsscraper.image_url.present? %>
-    <td><%= image_tag @newsscraper.image_url %></td>
-  <% else %>
-    <td><%= image_tag 'nia.jpg' %></td>
-  <% end%>
-</p>
 
 <%= link_to 'Back To Newsscraper', newsscrapers_path, class:"btn btn-info btn-xs" %>
 <hr>
