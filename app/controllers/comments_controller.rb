@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource param_method: :my_sanitizer
+  load_and_authorize_resource :through => :current_user
 
   # GET /comments/new
   def new
@@ -44,5 +46,9 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:newsscraper_id, :body, :user_id)
+    end
+    
+    def my_sanitizer
+      params.require(:comment).permit(:body)
     end
 end

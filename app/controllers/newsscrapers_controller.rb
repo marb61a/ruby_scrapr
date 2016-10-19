@@ -19,6 +19,7 @@ class NewsscrapersController < ApplicationController
 
   # GET /newsscrapers/1/edit
   def edit
+     authorize! :update, @newsscraper
   end
 
   # POST /newsscrapers
@@ -40,6 +41,7 @@ class NewsscrapersController < ApplicationController
   # PATCH/PUT /newsscrapers/1
   # PATCH/PUT /newsscrapers/1.json
   def update
+    authorize! :update, @newsscraper
     respond_to do |format|
       if @newsscraper.update(newsscraper_params)
         format.html { redirect_to @newsscraper, notice: 'Newsscraper was successfully updated.' }
@@ -54,6 +56,7 @@ class NewsscrapersController < ApplicationController
   # DELETE /newsscrapers/1
   # DELETE /newsscrapers/1.json
   def destroy
+    authorize! :destroy, @newsscraper
     @newsscraper.destroy
     respond_to do |format|
       format.html { redirect_to newsscrapers_url, notice: 'Newsscraper was successfully destroyed.' }
