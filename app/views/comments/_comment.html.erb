@@ -3,6 +3,10 @@
         <h4 class="pull-right">Was posted <%= time_ago_in_words(comment.created_at) %> ago</h4>
         <h4>Comment By <%= comment.user.username %></h4>
         <p><%= comment.body %></p>
+        <% if can? :destroy, comment %>
+            <%= link_to 'Destroy', [comment.newsscraper, comment], method: :delete,
+            data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-xs" %>
+        <% end %>
     </div>
 </div>
 

@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource param_method: :my_sanitizer
   load_and_authorize_resource :through => :current_user
+  before_action :authenticate_user!
 
   # GET /comments/new
   def new
@@ -32,7 +33,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to @comment.newsscraper, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

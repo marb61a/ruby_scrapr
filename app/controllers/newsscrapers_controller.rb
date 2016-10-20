@@ -1,5 +1,6 @@
 class NewsscrapersController < ApplicationController
   before_action :set_newsscraper, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /newsscrapers
   # GET /newsscrapers.json
