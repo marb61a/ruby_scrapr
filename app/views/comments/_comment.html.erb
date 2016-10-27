@@ -2,6 +2,7 @@
     <div class="caption-full">
         <h4 class="pull-right">Was posted <%= time_ago_in_words(comment.created_at) %> ago</h4>
         <h4>Comment By <%= comment.user.username %></h4>
+        <%= image_tag comment.user.image.url(:thumb), class: "img-circle" %>
         <p><%= comment.body %></p>
         <% if can? :destroy, comment %>
             <%= link_to 'Destroy', [comment.newsscraper, comment], method: :delete,
