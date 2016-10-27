@@ -28,6 +28,8 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'aws-sdk', '< 2.0'
+gem 'will_paginate', '~> 3.1'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 
 # Use ActiveModel has_secure_password

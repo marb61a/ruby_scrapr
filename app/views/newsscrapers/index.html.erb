@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Welcome to Newsscraper</h1>
+<div>
+  <%= will_paginate @newsscrapers, renderer: BootstrapPagination::Rails  %>  
+</div>
 
 <table class="table table-bordered">
   <thead>
@@ -20,7 +23,7 @@
         <td><%= link_to "Original Story", newsscraper.title_url, :target => "_blank" %></td>
         <td><%= newsscraper.title %></td>
         <td><%= newsscraper.body %></td>
-        <td><%= newsscraper.time %></td>
+        <td><%= newsscraper.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
         <% if newsscraper.image_url.present? %>
           <td><%= image_tag newsscraper.image_url %></td>
         <% else %>
@@ -37,7 +40,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @newsscrapers %>
 <br>
 
 <%= link_to 'New Newsscraper', new_newsscraper_path %>
